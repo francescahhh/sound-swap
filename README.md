@@ -1,3 +1,19 @@
+Project Pitch: 
+Made a fantastic curated playlist on Spotify and want to share it with a friend, but they use Apple Music? SoundSwap is an app designed so users can add song suggestions to shared playlists with friends. This playlist app is designed to bridge the gap between friends who use Apple Music and those who use Spotify, allowing users to still share song suggestions despite listening app preference differences.
+
+User Stories: 
+As a user, I should be able to create an account with my own username and password.
+As a user, I should be able to view all playlists created. 
+As a user, I should be able to create a new playlist. 
+As a user, I should be able to search for songs by title, artist, genre, and album. 
+As a user, I should be able to edit an existing playlist. 
+As a user, I should be able to delete a playlist. 
+As a user, I should be able to share a specific playlist with another user. 
+
+Stretch Deliverable:
+-add button to generate link to share playlist)
+
+
 # Project Template: React/Rails API
 
 ## Description
