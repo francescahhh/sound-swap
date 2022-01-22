@@ -11,6 +11,7 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
-    "16": "^0.0.2"
+    "16": "^0.0.2",
+    "react-select": "^5.2.2"
   }
 }

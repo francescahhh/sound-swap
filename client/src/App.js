@@ -1,5 +1,8 @@
 import './App.css';
+// import { useState } from 'react';
 import Header from './components/header';
+import SearchBar from './components/searchBar';
+import NewPlaylistButton from './components/newPlaylistButton';
 
 function App() {
   return (
@@ -7,7 +10,11 @@ function App() {
       <header className="App-header">
     <Header />
       </header>
-    </div>
+      <div>
+        <SearchBar />
+        <NewPlaylistButton />
+      </div>
+   </div>
   );
 }
 
