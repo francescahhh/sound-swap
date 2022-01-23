@@ -3,6 +3,8 @@ import './App.css';
 import Header from './components/header';
 import SearchBar from './components/searchBar';
 import NewPlaylistButton from './components/newPlaylistButton';
+import PlaylistContainer from './components/playlistContainer';
+import UserLoginButton from './components/userLogin';
 
 function App() {
   return (
@@ -11,8 +13,10 @@ function App() {
     <Header />
       </header>
       <div>
-        <SearchBar />
         <NewPlaylistButton />
+        <UserLoginButton />
+        <SearchBar />
+        <PlaylistContainer />
       </div>
    </div>
   );
