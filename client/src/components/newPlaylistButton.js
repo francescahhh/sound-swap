@@ -7,3 +7,4 @@ const NewPlaylistButton = () => {
 };
   export default NewPlaylistButton;
 
+//Would like to use a react icon (a plus sign of some kind) rather than the basic button 

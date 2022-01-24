@@ -15,3 +15,6 @@ const  SearchBar = () => {
 };
 
 export default SearchBar;
+
+
+//Need to add a dropdown menu to filter through the search results--does that need to be built out into a separate component (to make sure that each component is only in charge of one thing) and then combine this + the dropdown into a larger container component
