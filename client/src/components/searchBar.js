@@ -9,6 +9,11 @@ const  SearchBar = () => {
             placeholder="Search"
             name="s" 
         />
+        <select name="selectList" id="selectList">
+            <option value="option 1">Song Title</option>
+            <option value="option 2">Album Name</option>
+            <option value="option 3">Artist Name</option>
+        </select>
         <button className="button" type="submit">Search</button>
     </form>
 )
@@ -16,5 +21,3 @@ const  SearchBar = () => {
 
 export default SearchBar;
 
-
-//Need to add a dropdown menu to filter through the search results--does that need to be built out into a separate component (to make sure that each component is only in charge of one thing) and then combine this + the dropdown into a larger container component
