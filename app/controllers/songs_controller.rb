@@ -1,6 +1,12 @@
 class SongsController < ApplicationController
 
 
+    def index
+        song = Song.all
+        render json: song
+        end
+
+
     def create
         song = Song.create!(song_params)
         render json: song, status: :created

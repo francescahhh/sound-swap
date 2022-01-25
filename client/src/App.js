@@ -1,16 +1,16 @@
-import './App.css';
+import "./App.css";
 // import { useState } from 'react';
-import Header from './components/header';
-import SearchBar from './components/searchBar';
-import NewPlaylistButton from './components/newPlaylistButton';
-import PlaylistContainer from './components/playlistContainer';
-import UserLoginButton from './components/userLogin';
+import Header from "./components/header";
+import SearchBar from "./components/searchBar";
+import NewPlaylistButton from "./components/newPlaylistButton";
+import PlaylistContainer from "./components/playlistContainer";
+import UserLoginButton from "./components/userLogin";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-    <Header />
+        <Header />
       </header>
       <div>
         <NewPlaylistButton />
@@ -18,7 +18,7 @@ function App() {
         <SearchBar />
         <PlaylistContainer />
       </div>
-   </div>
+    </div>
   );
 }
 
