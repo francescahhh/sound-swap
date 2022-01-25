@@ -5,11 +5,11 @@ const  SearchBar = () => {
     <form action="/" method="get">
         <input
             type="text"
-            id="header-search"
+            id="search"
             placeholder="Search"
             name="s" 
         />
-        <button type="submit">Search</button>
+        <button className="button" type="submit">Search</button>
     </form>
 )
 };

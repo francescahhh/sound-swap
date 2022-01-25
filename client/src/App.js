@@ -4,7 +4,7 @@ import Header from "./components/header";
 import SearchBar from "./components/searchBar";
 import NewPlaylistButton from "./components/newPlaylistButton";
 import PlaylistContainer from "./components/playlistContainer";
-import UserLoginButton from "./components/userLogin";
+import UserDisplay from "./components/userDisplay";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       </header>
       <div>
         <NewPlaylistButton />
-        <UserLoginButton />
+        <UserDisplay />
         <SearchBar />
         <PlaylistContainer />
       </div>
