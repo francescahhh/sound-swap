@@ -1,6 +1,6 @@
 class PlaylistsController < ApplicationController
 
-    before_action :set_item, only: [:show, :update, :destroy]
+    before_action :set_playlist, only: [:show, :update, :destroy]
     before_action :is_authorized, only: [:update, :destroy]
 
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
@@ -11,8 +11,8 @@ class PlaylistsController < ApplicationController
         end
 
         def create
-            playlist = Playlist.create!(playlist_params)
-            render json: playlist, status: :created
+            @playlist = Playlist.create!(playlist_params)
+            render json: @playlist, status: :created
         end
 
         def update 
@@ -28,27 +28,40 @@ class PlaylistsController < ApplicationController
         end
 
         def destroy
-            playlist = find_by_id
-            playlist.destroy
+            if @playlist
+                @playlist.destroy
+                head :no_content
+            else
+                render json: {error: "this item does not exist"}, status: :not_found
+            end
         end
 
         def show
-            playlist = find_by_id
-            render json: playlist
+            if @playlist
+                render json: @playlist
+            else
+                render json: {error: "Playlist not found"}, status: :not_found
+            end
         end
     
         private
 
         def is_authorized 
-            # going to check if the current_user is the seller of the item that is being modified, or if the current user is an admin
-            permitted = current_user.admin? || @playlist == current_user 
+            permitted = current_user.admin? || @playlist.user == current_user
             render json: {error: "Accessibility is not permitted"}, status: :forbidden unless permitted
         end
 
 
         def find_by_id
             Playlist.find(params[:id])
-          end
+        end
+
+        def set_playlist
+            @playlist = Playlist.find_by_id(params[:id])
+        end
+
+
+
 
         def playlist_params
             params.permit(:song_id, :user_id, :title, :duration, :image)

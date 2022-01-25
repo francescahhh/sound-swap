@@ -8,12 +8,12 @@
 require 'faker'
 puts "🍕 Seeding data..."
 
-10.times do
-    User.create(
-      username: Faker::Name.first_name,
-      password: '123',
-    )
-  end
+# 10.times do
+#     User.create(
+#       username: Faker::Name.first_name,
+#       password: '123',
+#     )
+#   end
   
   100.times do
     Song.create(
@@ -28,13 +28,13 @@ puts "🍕 Seeding data..."
     )
   end
 
-  10.times do
-    Playlist.create(
-        title: Faker::App.name,
-        duration: Faker::Number.decimal(l_digits: 2),
-        image: Faker::Avatar.image
-    )
-  end
+  # 10.times do
+  #   Playlist.create(
+  #       title: Faker::App.name,
+  #       duration: Faker::Number.decimal(l_digits: 2),
+  #       image: Faker::Avatar.image,
+  #   )
+  # end
 
 
 
