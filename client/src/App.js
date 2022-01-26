@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import LoggedIn from "./components/LoggedIn";
 import LoggedOut from "./components/LoggedOut";
+import Navbar from "./components/NavBar";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -28,7 +29,7 @@ function App() {
   }
   return (
     <div>
-      <h1>SoundSwap</h1>
+      <Navbar />
 
       <Router>
         {currentUser ? (
