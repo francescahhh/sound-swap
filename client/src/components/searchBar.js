@@ -5,13 +5,42 @@ const SearchBar = () => {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
   const [update, setUpdate] = useState(false);
-  //   const [api, setApi] = useState(SongAPI);
 
-  const deezer = `https://api.deezer.com/search?q=${search}&redirect_uri=http%253A%252F%252Fguardian.mashape.com%252Fcallback&index=25`;
+  const deezer = `https://api.deezer.com/search?q=${search}&redirect_uri=http%253A%252F%252Fguardian.mashape.com%252Fcallback&index=25
+  `;
 
   function handleSearch(e) {
     e.preventDefault();
     setUpdate(!update);
+
+    const handleChange = (e) => {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+      });
+    };
+
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      const userCreds = { ...formData };
+
+      fetch("/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userCreds),
+      })
+        .then((r) => r.json())
+        .then((user) => {
+          console.log(user);
+          setFormData({
+            username: "",
+            password: "",
+          });
+        });
+    }
   }
 
   useEffect(() => {
@@ -22,7 +51,7 @@ const SearchBar = () => {
         .then((songData) => setResults(songData.data));
     }
   }, [update]);
-  console.log(results);
+  // console.log(results);
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
