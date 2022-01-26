@@ -1,30 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import SongCard from "./SongCard";
 
 const SearchBar = () => {
-  const [search, setSearch] = useState("a");
-  const [result, setResult] = useState();
+  const [search, setSearch] = useState("");
+  const [results, setResults] = useState([]);
+  const [update, setUpdate] = useState(false);
   //   const [api, setApi] = useState(SongAPI);
 
-  const SongAPI = `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${search}&api_key=e267a8c03a71d8001735092761c5637b&format=json`;
-  const artistAPI = `https://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${search}&api_key=e267a8c03a71d8001735092761c5637b&format=json`;
-  const albumAPI = `https://ws.audioscrobbler.com/2.0/?method=album.search&album=${search}&api_key=e267a8c03a71d8001735092761c5637b&format=json`;
-
+  const deezer = `https://api.deezer.com/search?q=${search}&redirect_uri=http%253A%252F%252Fguardian.mashape.com%252Fcallback&index=25`;
 
   function handleSearch(e) {
     e.preventDefault();
-    fetch(SongAPI)
-      .then((res) => res.json())
-      .then((songData) => setResult(songData.results.trackmatches.track));
-    console.log(result);
+    setUpdate(!update);
   }
 
+  useEffect(() => {
+    if (search == "") {
+    } else {
+      fetch(deezer)
+        .then((res) => res.json())
+        .then((songData) => setResults(songData));
+    }
+  }, [update]);
+  console.log(results);
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
-
-  //   const mapResults = result.map((song) => {
-  //     return <div>{song.name}</div>;
-  //   });
 
   return (
     <form onSubmit={handleSearch}>
@@ -43,7 +44,7 @@ const SearchBar = () => {
       <button className="button" type="submit">
         Search
       </button>
-      {/* <div>{mapResults}</div> */}
+      {/* <SongCard results={results} /> */}
     </form>
   );
 };
