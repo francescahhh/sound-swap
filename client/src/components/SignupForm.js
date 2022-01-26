@@ -61,6 +61,9 @@ const SignupForm = () => {
         <br />
         <br />
         <button type="submit">Submit</button>
+        <br />
+        <br />
+        <br />
       </form>
       <Link to="/" replace>
         Have an account already? Log in!

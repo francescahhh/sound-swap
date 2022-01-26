@@ -19,7 +19,7 @@ const SearchBar = () => {
     } else {
       fetch(deezer)
         .then((res) => res.json())
-        .then((songData) => setResults(songData));
+        .then((songData) => setResults(songData.data));
     }
   }, [update]);
   console.log(results);
@@ -36,15 +36,10 @@ const SearchBar = () => {
         name="s"
         onChange={handleChange}
       />
-      <select name="selectList" id="selectList">
-        <option value="option 1">Song Title</option>
-        <option value="option 2">Album Name</option>
-        <option value="option 3">Artist Name</option>
-      </select>
       <button className="button" type="submit">
         Search
       </button>
-      {/* <SongCard results={results} /> */}
+      <SongCard results={results} />
     </form>
   );
 };
