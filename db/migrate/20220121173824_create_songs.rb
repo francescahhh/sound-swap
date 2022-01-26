@@ -4,11 +4,10 @@ class CreateSongs < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :artist
       t.string :duration
-      t.string :genre
       t.string :image
-      t.string :album
-      t.string :summary
-      t.string :tag
+
+      t.belongs_to :user, null: false, foreign_key: true
+      t.belongs_to :song, null: false, foreign_key: true
 
       t.timestamps
     end

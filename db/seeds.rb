@@ -15,18 +15,18 @@ puts "🍕 Seeding data..."
 #     )
 #   end
   
-  100.times do
-    Song.create(
-      title: Faker::Book.title,
-      artist: Faker::Music.band,
-      duration: Faker::Number.decimal(l_digits: 2),
-      genre: Faker::Music.genre,
-      image: Faker::Avatar.image,
-      album: Faker::Music.album,
-      summary: Faker::Quote.famous_last_words,
-      tag: Faker::Music.genre
-    )
-  end
+  # 100.times do
+  #   Song.create(
+  #     title: Faker::Book.title,
+  #     artist: Faker::Music.band,
+  #     duration: Faker::Number.decimal(l_digits: 2),
+  #     genre: Faker::Music.genre,
+  #     image: Faker::Avatar.image,
+  #     album: Faker::Music.album,
+  #     summary: Faker::Quote.famous_last_words,
+  #     tag: Faker::Music.genre
+  #   )
+  # end
 
   # 10.times do
   #   Playlist.create(

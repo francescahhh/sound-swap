@@ -16,19 +16,35 @@ function SongCard({ results }) {
     if (seconds < 10) {
       seconds = "0" + seconds;
     }
-    console.log(hours + ":" + minutes + ":" + seconds);
+    // console.log(hours + ":" + minutes + ":" + seconds);
     return minutes + ":" + seconds; // Return is HH : MM : SS
   };
 
+  function handleClick(song) {
+    fetch("/songs", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(song),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        console.log(data);
+        // setCurrentUser(user);
+      });
+  }
+
   const mapResults = results.map((song) => {
-    console.log(song);
+    // console.log(song);
+
     return (
       <div className="song_container_card">
         <h1>{song.title}</h1>
-        <img src={song.album.cover} />
+        <img src={song.album.cover_medium} />
         <div>{song.artist.name}</div>
         <div>{convertHMS(song.duration)}</div>
-        <button>Add to Playlist</button>
+        <button onClick={() => handleClick(song)}>Add to Playlist</button>
       </div>
     );
   });

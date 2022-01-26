@@ -17,27 +17,23 @@ ActiveRecord::Schema.define(version: 2022_01_25_210126) do
 
   create_table "playlists", force: :cascade do |t|
     t.string "title"
-    t.string "duration"
+    t.string "duration", default: "0"
     t.string "image"
-    t.bigint "user_id", null: false
-    t.bigint "song_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["song_id"], name: "index_playlists_on_song_id"
-    t.index ["user_id"], name: "index_playlists_on_user_id"
   end
 
   create_table "songs", force: :cascade do |t|
     t.string "title"
     t.string "artist"
     t.string "duration"
-    t.string "genre"
     t.string "image"
-    t.string "album"
-    t.string "summary"
-    t.string "tag"
+    t.bigint "user_id", null: false
+    t.bigint "song_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["song_id"], name: "index_songs_on_song_id"
+    t.index ["user_id"], name: "index_songs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,9 +41,9 @@ ActiveRecord::Schema.define(version: 2022_01_25_210126) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
-    t.boolean "admin", default: false
+    t.boolean "admin", default: true
   end
 
-  add_foreign_key "playlists", "songs"
-  add_foreign_key "playlists", "users"
+  add_foreign_key "songs", "songs"
+  add_foreign_key "songs", "users"
 end
