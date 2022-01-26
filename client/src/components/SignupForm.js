@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./SignupFormLoginForm.css";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -37,8 +38,9 @@ const SignupForm = () => {
   }
 
   return (
-    <>
-      <h1>Signup Here!</h1>
+    <div className="user-form">
+      <h1>Create a SoundSwap Account</h1>
+      <p>SoundSwap allows users to curate playlists to share with friends—no matter their preferred streaming service!</p>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username: </label>
         <input
@@ -68,7 +70,7 @@ const SignupForm = () => {
       <Link to="/" replace>
         Have an account already? Log in!
       </Link>
-    </>
+    </div>
   );
 };
 

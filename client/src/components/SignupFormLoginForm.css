@@ -1,0 +1,33 @@
+.user-form {
+    text-align: center;
+    color: #3D5A80;
+  }
+
+a {
+  background-color: #3D5A80;
+    color: white;
+    padding: 10px; 
+    border-radius: 4px;
+  }
+
+  button {
+    background-color: #EE6C4D;
+    border-radius: 4px;
+    padding: 8px; 
+    color: white;
+    cursor: pointer; 
+  }
+
+  button:hover {
+    background-color: white; 
+    color: #EE6C4D;
+  }
+
+  input {
+    border-radius: 4px;
+  }
+
+  p {
+    color: #293241
+  }
+

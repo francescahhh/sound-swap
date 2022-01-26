@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./SignupFormLoginForm.css";
 
 const LoginForm = ({ setCurrentUser }) => {
   const [formData, setFormData] = useState({
@@ -38,8 +39,9 @@ const LoginForm = ({ setCurrentUser }) => {
   }
 
   return (
-    <>
+    <div className="user-form">
       <h1>Please Log In</h1>
+      <p>Start swapping sounds!</p>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username: </label>
         <input
@@ -69,7 +71,7 @@ const LoginForm = ({ setCurrentUser }) => {
       <Link to="/signup" replace>
         Don't have an account? Sign Up!
       </Link>
-    </>
+    </div>
   );
 };
 
