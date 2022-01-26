@@ -5,6 +5,7 @@ const SearchBar = () => {
   const [results, setResults] = useState({});
 
   const API = `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${search}&api_key=e267a8c03a71d8001735092761c5637b&format=json`;
+  const artistAPI = `https://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${search}&api_key=e267a8c03a71d8001735092761c5637b&format=json`;
 
   function handleSearch(e) {
     e.preventDefault();
